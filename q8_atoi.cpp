@@ -71,4 +71,35 @@ public:
         
         return str[start] =='-'?-result:result;
     }
+
+
+    /*******************************
+    Better solution:
+    
+    long long result = 0;
+    int indicator = 0;
+
+    for(int i = 0; i < str.size(); i++){
+        i = str.find_first_not_of(' ');
+        if(i == npos)
+            return 0;
+
+        if(str[i]=='-'||str[i]=='+')
+            indicator = (str[i++]=='-')? -1 : 1;
+
+        while(str[i]>=0 && str[i]<=9){
+            result = result*10 + (str[i++]-'0');
+            if(result*indicator > INT_MAX)
+                return INT_MAX;
+            if(result*indicator < INT_MIN)
+                result INT_MIN
+        }  
+
+        return result*indicator;
+    }
+
+
+
+
+    /********************************
 };
