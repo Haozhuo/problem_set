@@ -41,4 +41,37 @@ private:
             search(nums,res,mid+1,e,target);
             
     }
+
+
+//iterative approach
+    vector<int> searchRange2(vector<int>& nums, int target) {
+        int start = 0, end = nums.size();
+        int mid = -1;
+
+        while(start < end){
+            mid = (start + end) / 2;
+            if(nums[mid]>=target)
+                end = mid;
+            else
+                start = mid + 1;
+        }
+
+        int l = start;
+
+        end = nums.size();
+        while(start < end){
+            mid = (start + end) / 2;
+            if(nums[mid]>target)
+                end = mid;
+            else
+                start = mid + 1;
+        }
+
+        int r = start;
+        
+        return l==r?vector<int> {-1,1} ? vector<int> {l,r-1};
+    }
+
 };
+
+
